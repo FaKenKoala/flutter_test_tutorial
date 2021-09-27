@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 // ignore_for_file: public_member_api_docs
 
-void startApp() => runApp(const MyApp2());
-
 class MyApp2 extends StatefulWidget {
   const MyApp2({Key? key}) : super(key: key);
 

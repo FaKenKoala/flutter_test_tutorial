@@ -7,4 +7,4 @@ genhtml: genhtml coverage/lcov.info -o coverage/html
 
 test_cov_console: flutter pub run test_cov_console
 
-driver: flutter drive --driver=test_driver/integration_test.dart --target=integration_test/my_widget_test.dart
+drive: flutter drive --driver=test_driver/integration_test.dart --target=integration_test/my_widget_test.dart --no-dds

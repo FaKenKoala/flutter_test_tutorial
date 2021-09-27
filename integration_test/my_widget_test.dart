@@ -1,18 +1,18 @@
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
+import 'package:flutter_driver/driver_extension.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
 import 'package:flutter_test_tutorial/main.dart' as app;
 
 void main() {
+  //  enableFlutterDriverExtension();
+
   final IntegrationTestWidgetsFlutterBinding binding =
       IntegrationTestWidgetsFlutterBinding.ensureInitialized()
           as IntegrationTestWidgetsFlutterBinding;
 
-  setUpAll(() {
-    app.main();
-  });
   testWidgets('verify text', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     app.main();
@@ -36,10 +36,11 @@ void main() {
     });
   });
 
-  // testWidgets('screenshot', (widgetTester) async {
-  //   await binding.convertFlutterSurfaceToImage();
+  testWidgets('screenshot', (widgetTester) async {
+    app.main();
+    await binding.convertFlutterSurfaceToImage();
 
-  //   await widgetTester.pumpAndSettle();
-  //   await binding.takeScreenshot('screenshot-1: ${DateTime.now()}');
-  // });
+    await widgetTester.pumpAndSettle();
+    await binding.takeScreenshot('screenshot-1:${DateTime.now()}');
+  });
 }
