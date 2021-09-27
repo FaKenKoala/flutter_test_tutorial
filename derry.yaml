@@ -1,0 +1,10 @@
+build: flutter pub run build_runner build
+watch: flutter pub run build_runner watch
+
+test_coverage: flutter test --coverage
+
+genhtml: genhtml coverage/lcov.info -o coverage/html
+
+test_cov_console: flutter pub run test_cov_console
+
+driver: flutter drive --driver=test_driver/integration_test.dart --target=integration_test/my_widget_test.dart
